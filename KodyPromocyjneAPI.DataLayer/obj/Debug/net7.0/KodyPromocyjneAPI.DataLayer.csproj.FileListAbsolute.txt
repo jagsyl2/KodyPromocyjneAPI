@@ -1,0 +1,12 @@
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\bin\Debug\net7.0\KodyPromocyjneAPI.DataLayer.deps.json
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\bin\Debug\net7.0\KodyPromocyjneAPI.DataLayer.dll
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\bin\Debug\net7.0\KodyPromocyjneAPI.DataLayer.pdb
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\obj\Debug\net7.0\KodyPromocyjneAPI.DataLayer.csproj.AssemblyReference.cache
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\obj\Debug\net7.0\KodyPromocyjneAPI.DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\obj\Debug\net7.0\KodyPromocyjneAPI.DataLayer.AssemblyInfoInputs.cache
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\obj\Debug\net7.0\KodyPromocyjneAPI.DataLayer.AssemblyInfo.cs
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\obj\Debug\net7.0\KodyPromocyjneAPI.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\obj\Debug\net7.0\KodyPromocyjneAPI.DataLayer.dll
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\obj\Debug\net7.0\refint\KodyPromocyjneAPI.DataLayer.dll
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\obj\Debug\net7.0\KodyPromocyjneAPI.DataLayer.pdb
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.DataLayer\obj\Debug\net7.0\ref\KodyPromocyjneAPI.DataLayer.dll
