@@ -34,7 +34,7 @@ namespace KodyPromocyjneAPI
                             builder =>
                             {
                                 builder.WithOrigins(
-                                    "http://localhost:4200"
+                                    "http://localhost:10500"
                                 )
                                     .AllowAnyHeader()
                                     .AllowAnyMethod()
@@ -50,11 +50,11 @@ namespace KodyPromocyjneAPI
                 .Configure(app =>
                 {
                     app.UseRouting();
+                    app.UseCors("AllowOrigin");
                     app.UseEndpoints(endpoints =>
                     {
                         endpoints.MapControllers();
                     });
-                    app.UseCors("AllowOrigin");
 
                     app.UseSwagger();
                     app.UseSwaggerUI(c =>

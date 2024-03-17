@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KodyPromocyjneAPI.DataLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8afc8ea77a98d67a0b95af1c0e280cc869b9f61b")]
 [assembly: System.Reflection.AssemblyProductAttribute("KodyPromocyjneAPI.DataLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KodyPromocyjneAPI.DataLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

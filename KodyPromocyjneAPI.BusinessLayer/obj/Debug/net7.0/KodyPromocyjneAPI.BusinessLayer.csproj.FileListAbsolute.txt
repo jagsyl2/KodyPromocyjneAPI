@@ -1,4 +1,5 @@
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\bin\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.deps.json
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\bin\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.runtimeconfig.json
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\bin\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.dll
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\bin\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.pdb
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\bin\Debug\net7.0\KodyPromocyjneAPI.DataLayer.dll
@@ -8,8 +9,10 @@ C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromoc
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\obj\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.AssemblyInfoInputs.cache
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\obj\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.AssemblyInfo.cs
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\obj\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\obj\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.sourcelink.json
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\obj\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.csproj.CopyComplete
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\obj\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.dll
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\obj\Debug\net7.0\refint\KodyPromocyjneAPI.BusinessLayer.dll
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\obj\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.pdb
+C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\obj\Debug\net7.0\KodyPromocyjneAPI.BusinessLayer.genruntimeconfig.cache
 C:\Users\aigne\Documents\Sylwia\Programowanie\Zadanie_AutoPayServices\KodyPromocyjneAPI\KodyPromocyjneAPI.BusinessLayer\obj\Debug\net7.0\ref\KodyPromocyjneAPI.BusinessLayer.dll

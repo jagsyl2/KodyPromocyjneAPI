@@ -5,7 +5,8 @@ using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace KodyPromocyjneAPI.Controllers
 {
-    [Route("api/promocode")]
+    [ApiController]
+    [Route("api/promocodes")]
     public class PromoCodeController : ControllerBase
     {
         private readonly IPromoCodeServices _promoCodeServices;
@@ -20,119 +21,130 @@ namespace KodyPromocyjneAPI.Controllers
         }
 
         [HttpPost]
-        public async Task PostPromoCode([FromBody] PromoCode code)
+        public async Task<ActionResult> PostPromoCode([FromBody] PromoCode code)
         {
             try
             {
-                await _promoCodeServices.AddAsync(code);
-                await _changeLogServices.AddChangeLogAsync(new ChangeLog
+                var codeExist = await _promoCodeServices.CheckActiveCodeExistenceAsync(code);
+                if (codeExist)
                 {
-                    TableName = "PromoCode",
-                    Description = "Promo code added",
-                    CodeId = code.Id,
-                    NewValue = code.Name,
-                    DateChanged = DateTime.Now,
-                });
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        [HttpPut("{id}/inactive")]
-        public async Task SetPromoCodeToInactive(int id)
-        {
-            try
-            {
-                await _promoCodeServices.SetPromoCodeToInactive(id);
-                await _changeLogServices.AddChangeLogAsync(new ChangeLog
-                {
-                    TableName = "PromoCode",
-                    Description = "PC set to inactive",
-                    CodeId = id,
-                    NewValue = "false",
-                    DateChanged = DateTime.Now,
-                });
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        [HttpPut("{id}/changeName")]
-        public async Task ChangeNameOfPromoCode(int id, [FromBody] string newName)
-        {
-            try
-            {
-                await _promoCodeServices.UpdatePromoCodeNameAsync(id, newName);
-                await _changeLogServices.AddChangeLogAsync(new ChangeLog
-                {
-                    TableName = "PromoCode",
-                    Description = "PC Name changed",
-                    CodeId = id,
-                    NewValue = newName,
-                    DateChanged = DateTime.Now,
-                });
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        [HttpGet("{name}")]
-        public async Task<PromoCode> GetPromoCodeByName(string name)
-        {
-            try
-            {
-                var code = await _promoCodeServices.GetCodeByName(name);
-                if (code != null)
-                {
-                    await _changeLogServices.AddChangeLogAsync(new ChangeLog
-                    {
-                        TableName = "PromoCode",
-                        Description = "PC downloaded",
-                        CodeId = code.Id,
-                        NewValue = code.NumberOfPossibleUses.ToString(),
-                        DateChanged = DateTime.Now,
-                    });
+                    ModelState.AddModelError("Name", "Kod promocyjny o tej nazwie już istnieje i jest aktywny");
+                    return BadRequest(ModelState);
                 }
-                return code;
-            }
-            catch (Exception)
-            {
 
-                throw;
+                await _promoCodeServices.AddAsync(code);
+                await _changeLogServices.AddChangeLogAsync("PromoCode", "Promo code added", code.Id, code.Name);
+
+                return Ok("Kod promocyjny został dodany");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Wystąpił błąd podczas dodawania kodu promocyjnego: {ex.Message}");
+            }
+        }
+
+        [HttpPut("inactive/{id}")]
+        public async Task<ActionResult> SetPromoCodeToInactive(int id)
+        {
+            try
+            {
+                var code = await _promoCodeServices.GetCodeByIdAsync(id);
+                if (code == null)
+                {
+                    return NotFound($"Kod promocyjny o Id = {id} nie został znaleziony");
+                }
+
+                await _promoCodeServices.SetPromoCodeToInactiveAsync(id);
+                await _changeLogServices.AddChangeLogAsync("PromoCode", "PC set to inactive", id, "false");
+
+                return Ok($"Kod promocyjny {id}. {code.Name} został ustawiony jako nieaktywny");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Wystąpił błąd podczas ustawiania kodu promocyjnego jako niekatywny: {ex.Message}");
+            }
+        }
+
+        [HttpPut("changeName/{id}")]
+        public async Task<ActionResult> ChangeNameOfPromoCode(int id, [FromBody] string newName)
+        {
+            try
+            {
+                var code = await _promoCodeServices.GetCodeByIdAsync(id);
+                if (code == null)
+                {
+                    return NotFound($"Kod promocyjny o Id = {id} nie został znaleziony");
+                }
+                
+                var nameExist = await _promoCodeServices.CheckActiveCodeExistenceAsync(newName);
+                if(nameExist)
+                {
+                    ModelState.AddModelError("Name", "Kod promocyjny o tej nazwie już istnieje i jest aktywny");
+                    return BadRequest(ModelState);
+                }
+
+                await _promoCodeServices.UpdatePromoCodeNameAsync(id, newName);
+                await _changeLogServices.AddChangeLogAsync("PromoCode", "PC Name changed", id, newName);
+
+                return Ok($"Nazwa kodu promocyjnego o Id = {id} została zmieniona z {code.Name} na {newName}");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Wystąpił błąd podczas zmiany nazwy kodu promocyjnego: {ex.Message}");
+            }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetPromoCodes()
+        {
+            try
+            {
+                return Ok(await _promoCodeServices.GetAllCodesAsync());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Wystąpił błąd podczas pobierania kodów promocyjnych: {ex.Message}");
+            }
+        }
+
+        [HttpGet("display/{id}")]
+        public async Task<ActionResult<PromoCode>> GetPromoCodeById(int id)
+        {
+            try
+            {
+                var code = await _promoCodeServices.GetCodeByIdWithTransactionAsync(id);
+                if (code == null)
+                {
+                    return NotFound($"Kod promocyjny o Id = {id} nie został znaleziony");
+                }
+
+                return Ok(code);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Wystąpił błąd podczas pobierania kodu promocyjnego: {ex.Message}");
             }
         }
 
         [HttpDelete("{id}")]
-        public async Task DeletePromoCode(int id)
+        public async Task<ActionResult> DeletePromoCode(int id)
         {
             try
             {
-                await _promoCodeServices.DeleteAsync(new PromoCode
+                var codeExist = await _promoCodeServices.CheckCodeByIdExistenceAsync(id);
+                if (!codeExist)
                 {
-                    Id = id
-                });
-                await _changeLogServices.AddChangeLogAsync(new ChangeLog
-                {
-                    TableName = "PromoCode",
-                    Description = "PC deleted",
-                    CodeId = id,
-                    NewValue = "null",
-                    DateChanged = DateTime.Now,
-                });
+                    return NotFound($"Kod promocyjny o Id = {id} nie został znaleziony");
+                }
+
+                await _promoCodeServices.DeleteAsync(new PromoCode { Id = id });
+                await _changeLogServices.AddChangeLogAsync("PromoCode", "PC deleted", id, "null");
+
+                return Ok($"Kod promocyjny o Id = {id} został usunięty");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                return StatusCode(500, $"Wystąpił błąd podczas usuwania kodu promocyjnego: {ex.Message}");
             }
         }
     }
